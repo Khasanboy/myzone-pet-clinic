@@ -2,11 +2,13 @@ package com.myzone.petclinic.service.map;
 
 import com.myzone.petclinic.model.Owner;
 import com.myzone.petclinic.service.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService{
+@Service
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
     public Optional<Owner> findByLastName(String lastName) {
@@ -25,7 +27,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner save(Owner object) {
-        return super.save(object.getId(), object);
+        return super.save(object);
     }
 
     @Override
