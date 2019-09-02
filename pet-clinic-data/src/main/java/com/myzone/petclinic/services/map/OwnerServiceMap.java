@@ -1,10 +1,10 @@
-package com.myzone.petclinic.service.map;
+package com.myzone.petclinic.services.map;
 
-import com.myzone.petclinic.model.Owner;
-import com.myzone.petclinic.model.Pet;
-import com.myzone.petclinic.service.OwnerService;
-import com.myzone.petclinic.service.PetService;
-import com.myzone.petclinic.service.PetTypeService;
+import com.myzone.petclinic.models.Owner;
+import com.myzone.petclinic.models.Pet;
+import com.myzone.petclinic.services.OwnerService;
+import com.myzone.petclinic.services.PetService;
+import com.myzone.petclinic.services.PetTypeService;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

@@ -1,6 +1,6 @@
-package com.myzone.petclinic.service;
+package com.myzone.petclinic.services;
 
-import com.myzone.petclinic.model.Owner;
+import com.myzone.petclinic.models.Owner;
 
 import java.util.Optional;
 

@@ -1,6 +1,6 @@
-package com.myzone.petclinic.service.map;
+package com.myzone.petclinic.services.map;
 
-import com.myzone.petclinic.model.BaseEntity;
+import com.myzone.petclinic.models.BaseEntity;
 
 import java.util.*;
 

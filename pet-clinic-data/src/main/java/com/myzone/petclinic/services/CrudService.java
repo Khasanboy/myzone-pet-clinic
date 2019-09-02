@@ -1,4 +1,4 @@
-package com.myzone.petclinic.service;
+package com.myzone.petclinic.services;
 
 import java.util.Optional;
 import java.util.Set;

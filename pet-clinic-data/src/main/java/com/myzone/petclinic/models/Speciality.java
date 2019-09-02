@@ -1,4 +1,4 @@
-package com.myzone.petclinic.model;
+package com.myzone.petclinic.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

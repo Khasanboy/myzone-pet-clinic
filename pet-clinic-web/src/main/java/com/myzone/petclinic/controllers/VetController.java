@@ -1,6 +1,6 @@
 package com.myzone.petclinic.controllers;
 
-import com.myzone.petclinic.service.VetService;
+import com.myzone.petclinic.services.VetService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
