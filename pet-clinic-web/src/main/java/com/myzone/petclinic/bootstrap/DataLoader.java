@@ -1,10 +1,7 @@
 package com.myzone.petclinic.bootstrap;
 
 import com.myzone.petclinic.models.*;
-import com.myzone.petclinic.services.OwnerService;
-import com.myzone.petclinic.services.PetTypeService;
-import com.myzone.petclinic.services.SpecialityService;
-import com.myzone.petclinic.services.VetService;
+import com.myzone.petclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,12 +14,17 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
+    private final PetService petService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
+                      SpecialityService specialityService, VisitService visitService, PetService petService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
+        this.petService = petService;
     }
 
     @Override
@@ -64,6 +66,7 @@ public class DataLoader implements CommandLineRunner {
         pet.setPetType(type);
         pet.setBirthDate(LocalDate.now());
         pet.setOwner(owner1);
+        pet = petService.save(pet);
         owner1.getPets().add(pet);
 
         ownerService.save(owner1);
@@ -80,6 +83,7 @@ public class DataLoader implements CommandLineRunner {
         pet1.setPetType(cat);
         pet1.setBirthDate(LocalDate.now());
         pet1.setOwner(owner2);
+        pet1 = petService.save(pet1);
         owner2.getPets().add(pet1);
 
         ownerService.save(owner2);
@@ -95,5 +99,17 @@ public class DataLoader implements CommandLineRunner {
         vet2.setLastName("SetCAD");
         vet2.getSpecialities().add(surgery);
         vetService.save(vet2);
+
+        Visit visit=new Visit();
+        visit.setDate(LocalDate.now());
+        visit.setDescription("Dog visit");
+        visit.setPet(pet);
+        visitService.save(visit);
+
+        Visit visit1 = new Visit();
+        visit1.setDate(LocalDate.now());
+        visit1.setDescription("Cat visit");
+        visit1.setPet(pet1);
+        visitService.save(visit1);
     }
 }
