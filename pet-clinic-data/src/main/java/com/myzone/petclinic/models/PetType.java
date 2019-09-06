@@ -1,7 +1,6 @@
 package com.myzone.petclinic.models;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,9 +8,12 @@ import javax.persistence.Table;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "pet_types")
-public class PetType extends BaseEntity{
+public class PetType extends BaseEntity {
 
     @Column(name = "name")
     private String name;
