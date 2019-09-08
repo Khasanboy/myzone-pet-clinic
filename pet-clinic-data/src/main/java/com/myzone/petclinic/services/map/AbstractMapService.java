@@ -13,7 +13,7 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
     }
 
     Optional<T> findById(ID id) {
-        return Optional.of(map.get(id));
+        return Optional.ofNullable(map.get(id));
     }
 
     T save(T object) {
@@ -30,11 +30,11 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
     }
 
     void deleteById(ID id) {
-        this.findById(id).ifPresent(f -> map.remove(f));
+        this.findById(id).ifPresent(f -> delete(f));
     }
 
     void delete(T object) {
-        map.remove(object);
+        map.values().removeIf(o->o.equals(object));
     }
 
     private Long getNextId() {

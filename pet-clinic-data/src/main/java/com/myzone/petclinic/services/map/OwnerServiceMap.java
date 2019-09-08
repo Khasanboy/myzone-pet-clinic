@@ -25,7 +25,11 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Optional<Owner> findByLastName(String lastName) {
-        return Optional.empty();
+
+        return map.values().stream()
+                .filter(owner -> owner.getLastName() != null)
+                .filter(owner -> owner.getLastName().equals(lastName))
+                .findFirst();
     }
 
     @Override
@@ -57,12 +61,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
                     }
                 });
             }
-            super.save(object);
+            return super.save(object);
         } else {
             return null;
         }
-
-        return super.save(object);
     }
 
     @Override
